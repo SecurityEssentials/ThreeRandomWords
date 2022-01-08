@@ -1,107 +1,79 @@
 ---
 layout: default
 ---
-
-<!doctype html>
 <!-- Three Random Words Password Generator
+This is included in the Git Pages template, inserted after the initial <body> and some initial code.
+Head elements are in _includes/head-custom.html
 -->
-<html>
-    <head>
-        <title>Three Random Words Password Generator</title>
-        
-        <meta charset="UTF-8"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-        <meta name="description" content="Password Generator, using Three Random Words"/>
-        <meta name="robots" content="index, follow, archive"/>
-        <meta property="st:section" content=""/>
-        <meta name="twitter:title" content="Three Random Words"/>
-        <meta name="twitter:description" content="Password Generator, using Three Random Words"/>
-        <meta name="twitter:card" content="summary_large_image"/>
-        <meta property="og:url" content="http://securityessentials.github.io/ThreeRandomWords/images/scrabble-tiles-pixabay.jpg"/>
-        <meta property="og:title" content="Three Random Words"/>
-        <meta property="og:description" content="Password Generator, using Three Random Words"/>
-        <meta property="og:type" content="article"/>
-        <meta property="og:locale" content="en_US"/>
-        <meta property="og:site_name" content="SecureDevelopment Github Pages"/>
-        <meta name="twitter:image" content="https://securityessentials.github.io/ThreeRandomWords/images/scrabble-tiles-pixabay.jpg"/>
-        <meta property="og:image" content="https://securityessentials.github.io/ThreeRandomWords/images/scrabble-tiles-pixabay.jpg"/>
-        <meta property="og:image:width" content="1920"/>
-        <meta property="og:image:height" content="1504"/>
-        <meta property="og:image:secure_url" content="https://securityessentials.github.io/ThreeRandomWords/images/scrabble-tiles-pixabay.jpg"/>
-        
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-        <!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-150979818-1"></script>-->
-        
-        <!-- ****************************************** Stylesheet *********************************************** -->
-        
-        <style>
-       /** Override the Merlot template: */
-       
-        footer {
-            padding-top: 30px;
-            margin: auto; /* Default overwrites much of the page.  */
-        }
-        
-        h1 {
-            text-transform: capitalize !important; /* Default of THREERANDOMWORDS is not helpful.*/
-        }
-        
-        /** Other style settings: */
-        
-        .socialMedia {
-            margin-top: 40px;
-            text-align: center;
-        }
-        
-        #theSuggestion {
-            font-size: 133%;
-            color: blue;
-            margin-left: 3em;
-        }
-        
-        #oldFashioned {
-            text-indent: 4em;
-            color: blue;
-            text-transform: capitalize;
-        }
-        </style>
-  
-    </head>
-    <!-- ****************************************** HTML body *********************************************** -->
+
+<!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-150979818-1"></script>-->
+
+<!-- ****************************************** Stylesheet *********************************************** -->
+
+<style>
+    /** Override the Merlot template: */
     
-    <body>
-        
-        <h2>Your New Password</h2>
-        
-        <img src="images/scrabble-tiles-pixabay.jpg" width="25%"/ style="float:right"/>
-        <div>
-            <p>Below is a new password of three random words. It has been created in your web browser, so unless they can see your screen, nobody else has had access to it.</p>
-            
-            <p id="theSuggestion"> <span class="word1"></span> <span class="word2"> </span> <span class="word3"></span> </p> <!-- Oddly, '/>' doesn't work with spans -->
-            
-            <p>For websites that have old-fashioned constraints&mdash;such as demands for capitals, numbers and non-alphanumerics&mdash;copy and paste the following, which is just as secure: </p>
-            
-            <p id="oldFashioned"><span class="word1"></span><span class="word2"></span><span class="word3"></span>9!</p>
-            
-            <p>Don't like the password? Refresh the page to select another.</p>
-            
-            <p>Like this page? Share it using the social media buttons below.</p>
-            
-            <div class="socialMedia">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-facebook.svg" width="40" height="40" alt="Share with Facebook"/></a>
-                <a href="https://twitter.com/intent/tweet?text=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-twitter.svg" width="40" height="40" alt="Share with Twitter"/></a>
-                <a href="https://www.linkedin.com/shareArticle?url=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-linkedin.svg" width="40" height="40" alt="Share with LinkedIn"/></a>
-            </div>
-            
-        </div>
-        <!-- Footer with copyright etc. -->
-        <footer id="footer">
-            <p>Copyright (c) 2021 Charles Weir </p>
-            <p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, which is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
-        </footer>
-    </body>
+    footer {
+        padding-top: 30px;
+        margin: auto; /* Default overwrites much of the page.  */
+    }
+
+h1 {
+    text-transform: capitalize !important; /* Default of THREERANDOMWORDS is not helpful.*/
+}
+
+/** Other style settings: */
+
+.socialMedia {
+    margin-top: 40px;
+    text-align: center;
+}
+
+#theSuggestion {
+    font-size: 133%;
+    color: blue;
+    margin-left: 3em;
+}
+
+#oldFashioned {
+    text-indent: 4em;
+    color: blue;
+    text-transform: capitalize;
+}
+</style>
+
+<!-- ****************************************** HTML body *********************************************** -->
+
+
+<h2>Your New Password</h2>
+
+<img src="images/scrabble-tiles-pixabay.jpg" width="25%"/ style="float:right"/>
+<div>
+    <p>Below is a new password of three random words. It has been created in your web browser, so unless they can see your screen, nobody else has had access to it.</p>
+    
+    <p id="theSuggestion"> <span class="word1"></span> <span class="word2"> </span> <span class="word3"></span> </p> <!-- Oddly, '/>' doesn't work with spans -->
+    
+    <p>For websites that have old-fashioned constraints&mdash;such as demands for capitals, numbers and non-alphanumerics&mdash;copy and paste the following, which is just as secure: </p>
+    
+    <p id="oldFashioned"><span class="word1"></span><span class="word2"></span><span class="word3"></span>9!</p>
+    
+    <p>Don't like the password? Refresh the page to select another.</p>
+    
+    <p>Like this page? Share it using the social media buttons below.</p>
+    
+    <div class="socialMedia">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-facebook.svg" width="40" height="40" alt="Share with Facebook"/></a>
+        <a href="https://twitter.com/intent/tweet?text=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-twitter.svg" width="40" height="40" alt="Share with Twitter"/></a>
+        <a href="https://www.linkedin.com/shareArticle?url=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-linkedin.svg" width="40" height="40" alt="Share with LinkedIn"/></a>
+    </div>
+    
+</div>
+<!-- Footer with copyright etc. -->
+<footer id="footer">
+    <p>Copyright (c) 2021 Charles Weir </p>
+    <p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, which is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
+</footer>
+
     <!-- ****************************************** Javascript *********************************************** -->
     
     <script type="text/javascript">
@@ -130,4 +102,3 @@ layout: default
     gtag('config', 'G-762RZQ4E4B');
     </script>
     -->
-</html>
