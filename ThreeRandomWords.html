@@ -18,21 +18,24 @@ layout: default
         <!-- ****************************************** Stylesheet *********************************************** -->
         
         <style>
-            
+       /** Override the Merlot template: */
+       
         footer {
-            /*font-style: italic;*/
             padding-top: 30px;
             margin: auto; /* Default overwrites much of the page.  */
         }
         
         h1 {
-            text-transform: capitalize; /* Default of THREERANDOMWORDS is not helpful.*/
+            text-transform: capitalize !important; /* Default of THREERANDOMWORDS is not helpful.*/
         }
+        
+        /** Other style settings: */
         
         .socialMedia {
             margin-top: 40px;
             text-align: center;
         }
+        
         #theSuggestion {
             font-size: 133%;
             color: blue;
@@ -77,7 +80,7 @@ layout: default
         <!-- Footer with copyright etc. -->
         <footer id="footer">
             <p>Copyright (c) 2021 Charles Weir </p>
-            <p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, and is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
+            <p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, which is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
         </footer>
     </body>
     <!-- ****************************************** Javascript *********************************************** -->
