@@ -1,0 +1,94 @@
+---
+layout: default
+---
+  
+<!doctype html>
+<!-- Three Random Words Password Generator
+-->
+<html>
+<head>
+<title>Three Random Words Password Generator</title>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+<!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-150979818-1"></script>-->
+    
+<!-- ****************************************** Stylesheet *********************************************** -->
+
+<style>
+
+footer {
+    font-style: italic;
+}
+
+#theSuggestion {
+    font-size: 200%;
+    color: blue;
+    text-indent: 2em;
+}
+
+#oldFashioned {
+    text-indent: 4em;
+    font-style: italic;
+    text-transform: capitalize;
+}
+
+</style>
+
+
+</head>
+<!-- ****************************************** HTML body *********************************************** -->
+
+<body >
+
+  <h3>Three Random Words Password</h3>
+
+<div>
+	<p>Here is a three random word password. It has been created locally to your web browser, so unless they can see your screen, nobody else has had access to it.</p>
+ 
+    <p id="theSuggestion"> <span class="word1"></span> <span class="word2"> </span> <span class="word3"></span> </p> <!-- Oddly, '/>' doesn't work with spans -->
+    
+    <p>For websites that have old-fashioned constraints&mdash;such as demands for capitals, numbers and non-alphanumerics&mdash;copy and paste the following, which is just as secure: </p>
+    
+    <p id="oldFashioned"><span class="word1"></span><span class="word2"></span><span class="word3"></span>0!</p>
+
+	<p>Don't like it? Refresh the page to select another.</p>
+ 
+<!-- Footer with copyright etc. -->
+
+<footer id="footer">
+<p>Copyright (c) 2021 Charles Weir </p>
+<p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, and is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
+</footer>
+
+</body>
+<!-- ****************************************** Javascript *********************************************** -->
+
+<script type="text/javascript">
+
+$.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', function(passwordFile) {
+    var passwords = (passwordFile.split(/\s+/) // Ignore different line endings
+                    .filter(word => word.length > 3 && word.length < 9) // One to three letter words are mostly rubbish. Too long is a pain to enter.
+                    );
+    var randomIntegers = new Uint32Array(3);
+    window.crypto.getRandomValues(randomIntegers);
+    $(".word1").text(passwords[randomIntegers[0] % passwords.length]);
+    $(".word2").text(passwords[randomIntegers[1] % passwords.length]);
+    $(".word3").text(passwords[randomIntegers[2] % passwords.length]);
+}, 'text');
+
+</script>
+
+<!-- ************************************ Google Analytics ******************************
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-762RZQ4E4B"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-762RZQ4E4B');
+</script>
+-->
