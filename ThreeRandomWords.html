@@ -1,105 +1,107 @@
 ---
 layout: default
 ---
-  
+
 <!doctype html>
 <!-- Three Random Words Password Generator
 -->
 <html>
-<head>
-<title>Three Random Words Password Generator</title>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-<!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-150979818-1"></script>-->
+    <head>
+        <title>Three Random Words Password Generator</title>
+        
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-150979818-1"></script>-->
+        
+        <!-- ****************************************** Stylesheet *********************************************** -->
+        
+        <style>
+            
+        footer {
+            font-style: italic;
+            padding-top: 20;
+            margin: 0;
+        }
+        
+        .socialMedia {
+            margin-top: 10;
+            text-align: center;
+        }
+        #theSuggestion {
+            font-size: 133%;
+            color: blue;
+            margin-left: 3em;
+        }
+        
+        #oldFashioned {
+            text-indent: 4em;
+            color: blue;
+            text-transform: capitalize;
+        }
+        </style>
+  
+    </head>
+    <!-- ****************************************** HTML body *********************************************** -->
     
-<!-- ****************************************** Stylesheet *********************************************** -->
-
-<style>
-
-footer {
-    font-style: italic;
-    padding-top: 25;
-    margin: 0;
-}
-
-.socialMedia {
-    text-align: center;
-}
-#theSuggestion {
-    font-size: 133%;
-    color: blue;
-    margin-left: 3em;
-}
-
-#oldFashioned {
-    text-indent: 4em;
-    color: blue;
-    text-transform: capitalize;
-}
-
-</style>
-
-
-</head>
-<!-- ****************************************** HTML body *********************************************** -->
-
-<body >
-
-  <h2>Three Random Words Password</h2>
-
-<img src="images/scrabble-tiles-pixabay.jpg" width="25%"/ style="float:right">
-<div>
-	<p>Here is a password of three random words. It has been created locally to your web browser, so unless they can see your screen, nobody else has had access to it.</p>
- 
-    <p id="theSuggestion"> <span class="word1"></span> <span class="word2"> </span> <span class="word3"></span> </p> <!-- Oddly, '/>' doesn't work with spans -->
+    <body>
+        
+        <h2>Three Random Words Password</h2>
+        
+        <img src="images/scrabble-tiles-pixabay.jpg" width="25%"/ style="float:right"/>
+        <div>
+            <p>Below is a new password of three random words. It has been created in your web browser, so unless they can see your screen, nobody else has had access to it.</p>
+            
+            <p id="theSuggestion"> <span class="word1"></span> <span class="word2"> </span> <span class="word3"></span> </p> <!-- Oddly, '/>' doesn't work with spans -->
+            
+            <p>For websites that have old-fashioned constraints&mdash;such as demands for capitals, numbers and non-alphanumerics&mdash;copy and paste the following, which is just as secure: </p>
+            
+            <p id="oldFashioned"><span class="word1"></span><span class="word2"></span><span class="word3"></span>9!</p>
+            
+            <p>Don't like the password? Refresh the page to select another.</p>
+            
+            <p>Like this page? Share it using the social media buttons below.</p>
+            
+            <div class="socialMedia">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-facebook.svg" width="40" height="40" alt="Share with Facebook"/></a>
+                <a href="https://twitter.com/intent/tweet?text=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-twitter.svg" width="40" height="40" alt="Share with Twitter"/></a>
+                <a href="https://www.linkedin.com/shareArticle?url=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-linkedin.svg" width="40" height="40" alt="Share with LinkedIn"/></a>
+            </div>
+            
+        </div>
+        <!-- Footer with copyright etc. -->
+        <footer id="footer">
+            <p>Copyright (c) 2021 Charles Weir </p>
+            <p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, and is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
+        </footer>
+    </body>
+    <!-- ****************************************** Javascript *********************************************** -->
     
-    <p>For websites that have old-fashioned constraints&mdash;such as demands for capitals, numbers and non-alphanumerics&mdash;copy and paste the following, which is just as secure: </p>
+    <script type="text/javascript">
+        
+        $.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', function(passwordFile) {
+            var passwords = (passwordFile.split(/\s+/) // Ignore different line endings
+                             .filter(word => word.length > 3 && word.length < 9) // One to three letter words are mostly rubbish. Too long is a pain to enter.
+                             );
+                             var randomIntegers = new Uint32Array(3);
+                             window.crypto.getRandomValues(randomIntegers);
+                             $(".word1").text(passwords[randomIntegers[0] % passwords.length]);
+                             $(".word2").text(passwords[randomIntegers[1] % passwords.length]);
+                             $(".word3").text(passwords[randomIntegers[2] % passwords.length]);
+        }, 'text');
     
-    <p id="oldFashioned"><span class="word1"></span><span class="word2"></span><span class="word3"></span>9!</p>
-
-	<p>Like it? Share this page using the social media buttons below. Don't like it? Refresh the page to select another.</p>
- 
- <div class="socialMedia">
- <a href="https://www.facebook.com/sharer/sharer.php?u=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-facebook.svg" width="40" height="40" alt="Share with Facebook"/></a>
-  <a href="https://twitter.com/intent/tweet?text=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-twitter.svg" width="40" height="40" alt="Share with Twitter"/></a>
-   <a href="https://www.linkedin.com/shareArticle?url=https://securityessentials.github.io/ThreeRandomWords/ThreeRandomWords.html"><img src="images/icons8-linkedin.svg" width="40" height="40" alt="Share with LinkedIn"/></a>
- </div>
-<!-- Footer with copyright etc. -->
-
-<footer id="footer">
-<p>Copyright (c) 2021 Charles Weir </p>
-<p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, and is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
-</footer>
-
-</body>
-<!-- ****************************************** Javascript *********************************************** -->
-
-<script type="text/javascript">
-
-$.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', function(passwordFile) {
-    var passwords = (passwordFile.split(/\s+/) // Ignore different line endings
-                    .filter(word => word.length > 3 && word.length < 9) // One to three letter words are mostly rubbish. Too long is a pain to enter.
-                    );
-    var randomIntegers = new Uint32Array(3);
-    window.crypto.getRandomValues(randomIntegers);
-    $(".word1").text(passwords[randomIntegers[0] % passwords.length]);
-    $(".word2").text(passwords[randomIntegers[1] % passwords.length]);
-    $(".word3").text(passwords[randomIntegers[2] % passwords.length]);
-}, 'text');
-
-</script>
-
-<!-- ************************************ Google Analytics ******************************
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-762RZQ4E4B"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-762RZQ4E4B');
-</script>
--->
+    </script>
+    
+    <!-- ************************************ Google Analytics ******************************
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-762RZQ4E4B"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    
+    gtag('config', 'G-762RZQ4E4B');
+    </script>
+    -->
+</html>
