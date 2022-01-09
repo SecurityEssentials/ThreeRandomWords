@@ -8,6 +8,10 @@ Head elements are in _includes/head-custom.html
 
 <!--<script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-150979818-1"></script>-->
 
+<script>
+    // Fix template to make zooming work correctly in Chrome on mobile.
+    $('meta[name="viewport"').attr("content", "width=640, initial-scale=1");
+</script>
 <!-- ****************************************** Stylesheet *********************************************** -->
 
 <style>
