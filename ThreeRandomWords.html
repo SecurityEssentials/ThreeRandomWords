@@ -39,7 +39,6 @@ h1 {
 #oldFashioned {
     text-indent: 4em;
     color: blue;
-    text-transform: capitalize;
 }
 </style>
 
@@ -56,7 +55,7 @@ h1 {
     
     <p>For websites that have old-fashioned constraints&mdash;such as demands for capitals, numbers and non-alphanumerics&mdash;copy and paste the following, which is just as secure: </p>
     
-    <p id="oldFashioned"><span class="word1"></span><span class="word2"></span><span class="word3"></span>9!</p>
+    <p id="oldFashioned"><span class="word1c"></span><span class="word2c"></span><span class="word3c"></span>9!</p>
     
     <p>Don't like the password? Refresh the page to select another.</p>
     
@@ -78,6 +77,9 @@ h1 {
     <!-- ****************************************** Javascript *********************************************** -->
     
     <script type="text/javascript">
+        function capitalize(word) {
+            return word ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() : '';
+        }
         
         $.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', function(passwordFile) {
             var passwords = (passwordFile.split(/\s+/) // Ignore different line endings
@@ -88,6 +90,10 @@ h1 {
                              $(".word1").text(passwords[randomIntegers[0] % passwords.length]);
                              $(".word2").text(passwords[randomIntegers[1] % passwords.length]);
                              $(".word3").text(passwords[randomIntegers[2] % passwords.length]);
+                             $(".word1c").text(capitalize(passwords[randomIntegers[0] % passwords.length]));
+                             $(".word2c").text(capitalize(passwords[randomIntegers[1] % passwords.length]));
+                             $(".word3c").text(capitalize(passwords[randomIntegers[2] % passwords.length]));
+                             
         }, 'text');
     
     </script>
