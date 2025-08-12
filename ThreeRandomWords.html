@@ -81,7 +81,7 @@ h1 {
             return word ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() : '';
         }
         
-        $.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/google-10000-english-no-swears.txt', function(passwordFile) {
+        $.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/20k.txt', function(passwordFile) {
             var passwords = (passwordFile.split(/\s+/) // Ignore different line endings
                              .filter(word => word.length > 3 && word.length < 9) // One to three letter words are mostly rubbish. Too long is a pain to enter.
                              );
