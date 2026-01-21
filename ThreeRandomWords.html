@@ -71,7 +71,7 @@ h1 {
 <!-- Footer with copyright etc. -->
 <footer id="footer">
     <p>Copyright (c) 2025 Charles Weir </p>
-    <p>The word list is derived from <a href="https://github.com/first20hours/google-10000-english">Josh Kaufman's Google-10000-English Github repository</a>, which is based on <a href="https://books.google.com/ngrams/info">Google's Trillion Word Corpus</a>. There may be <a href="https://github.com/first20hours/google-10000-english/blob/master/LICENSE.md"> limitations on its commercial use</a>.
+    <p>The word list is derived from the <a href="https://github.com/Fj00/CEL">Common English Lexicon</a>, created by Eric Smith (Fj00) and Kenji Matsumoto (strataji). It has the MIT (unrestricted use) license. </p>
 </footer>
 
     <!-- ****************************************** Javascript *********************************************** -->
@@ -81,7 +81,7 @@ h1 {
             return word ? word.charAt(0).toUpperCase() + word.slice(1).toLowerCase() : '';
         }
         
-        $.get('https://raw.githubusercontent.com/first20hours/google-10000-english/master/20k.txt', function(passwordFile) {
+        $.get('https://raw.githubusercontent.com/Fj00/CEL/master/cel_2-15.txt', function(passwordFile) {
             var passwords = (passwordFile.split(/\s+/) // Ignore different line endings
                              .filter(word => word.length > 3 && word.length < 9) // One to three letter words are mostly rubbish. Too long is a pain to enter.
                              );
